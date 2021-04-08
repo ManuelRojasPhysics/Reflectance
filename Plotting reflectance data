@@ -1,0 +1,119 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[53]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+from scipy.stats import chi2
+import warnings
+
+
+# In[29]:
+
+
+# Load data from file into array
+data_in = np.genfromtxt('s0014_L1.txt', skip_header=6, delimiter='	')
+
+print(data_in[1][0])
+
+
+# initialize arrays
+
+
+pixel = np.zeros(len(data_in))
+wavelength = np.zeros(len(data_in))
+darkref = np.zeros(len(data_in))
+transref = np.zeros(len(data_in))
+T1 = np.zeros(len(data_in))
+T2 = np.zeros(len(data_in))
+T3 = np.zeros(len(data_in))
+T4 = np.zeros(len(data_in))
+#fill arrays with vals from file
+
+for i in range(len(data_in)):
+
+    pixel[i] = data_in[i][0]
+    wavelength[i] = data_in[i][1]
+    darkref[i] = data_in[i][2]
+    transref[i] = data_in[i][3]
+## different trials (program takes image of spectra every 30 seconds)
+    T1[i] = data_in[i][4]
+    T2[i] = data_in[i][5]
+    T3[i] = data_in[i][6]
+    T4[i] = data_in[i][7]
+
+
+# In[44]:
+
+
+# Plot model with a solid line
+plt.plot(wavelength,T2, '-');
+
+# Set axis limits to include origin
+plt.xlim(100,1200)
+plt.ylim(0,1500);
+
+# Add axis labels
+plt.xlabel('Wavelength (nm)')
+plt.ylabel('Magnitude');
+
+# Add legend
+## plt.legend(['Data','100 $\Omega$'])
+
+# Add title
+plt.title('Spectra S0014');
+
+
+# create array from file
+
+
+s130 = np.genfromtxt('S130.txt', skip_header = 6, delimiter = '	')
+print(s130)
+
+
+# In[51]:
+
+# initializing first and second image of spectra, as well as wavelength values
+image1 = np.zeros(len(s130))
+image2 = np.zeros(len(s130))
+wavel = np.zeros(len(s130))
+# filling with values
+for i in range(len(s130)):
+    image1[i] = s130[i][4]
+    image2[i] = s130[i][5]
+    wavel[i] = s130[i][1]
+    
+
+
+ 
+
+
+# In[52]:
+
+
+# Plot model with a solid line
+plt.plot(wavel,image1, '-');
+
+# Set axis limits to include origin
+plt.xlim(100,1200)
+plt.ylim(0,1300);
+
+# Add axis labels
+plt.xlabel('Wavelength (nm)')
+plt.ylabel('Magnitude');
+
+# Add legend
+## plt.legend(['Data','100 $\Omega$'])
+
+# Add title
+plt.title('Spectra S130');
+
+
+# In[ ]:
+
+
+
+
