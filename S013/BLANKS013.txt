@@ -3,11 +3,6 @@ Model Number: SPM-002-E
 Firmware Version: 004.17.3
 Exposure Time: 400µs  
 Logging Finished on: 30/01/2018 11:36:03.983
-
-
-
-
-
 Pixel Number	Wavelength	Dark Background Reference	Transmittance Reference	30/01/2018 11:34:50.625 _Exposure: 400us	30/01/2018 11:35:20.733 _Exposure: 400us	30/01/2018 11:35:50.811 _Exposure: 400us
 0.000	166.244	0.000	0.000	0.000	0.000	0.000
 1.000	166.514	0.000	0.000	0.000	0.000	0.000
